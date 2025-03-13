@@ -1,0 +1,53 @@
+modules:
+  jira:adminPage:
+    - key: admin-page
+      resource: admin
+      resolver:
+        function: resolver
+      render: native
+      title: Send User Message
+  jira:issueViewBackgroundScript:
+    - key: issue-view-background-script
+      resource: toaster
+      resolver:
+        function: resolver
+      render: native
+  jira:dashboardBackgroundScript:
+    - key: dashboard-background-script
+      resource: toaster
+      resolver:
+        function: resolver
+      render: native
+
+  function:
+    - key: resolver
+      handler: index.handler
+resources:
+  - key: admin
+    path: src/frontend/admin.jsx
+  - key: toaster
+    path: src/frontend/toaster.jsx
+
+app:
+  runtime:
+    name: nodejs22.x
+  id: ari:cloud:ecosystem::app/3f1f12b4-2270-46e3-a14d-f6a4c8ef3c95
+  storage:
+    entities:
+      - name: toast
+        attributes:
+          accountId:
+            type: string
+          type:
+            type: string
+          title:
+            type: string
+          description:
+            type: string
+        indexes:
+          - accountId
+
+permissions:
+  scopes:
+    - storage:app
+    - read:jira-work
