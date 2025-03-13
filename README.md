@@ -2,6 +2,30 @@
 
 This is an example Atlassian Forge app demonstrating how to display a transient "flag" message (also known as a ["Toast"](https://www.suprsend.com/post/the-ultimate-guide-to-toast-messages) on some platforms) to a specific user on your Jira site. This implementation will show messages on the view issue and/or dashboard views.
 
+## Getting Started
+
+- Clone this repository.
+
+- Register a copy of the app to your Atlassian account:
+```
+forge register
+```
+
+- Install top-level dependencies:
+```
+npm install
+```
+
+- Deploy your app:
+```
+forge deploy
+```
+
+- Install your app into an Atlassian site:
+```
+forge install
+```
+
 ## Sending messages
 
 - In Jira Cloud, browse to **Settings** > **Apps** > **Send User Message**.
